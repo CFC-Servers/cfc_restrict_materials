@@ -1,16 +1,13 @@
-local ENT    = FindMetaTable("Entity")
-local SetMat = ENT.SetMaterial
-local SubMat = ENT.SetSubMaterial
-local sub    = string.sub
+local ENT = FindMetaTable("Entity")
 
-function ENT:SetMaterial(Mat)
-    if Mat and sub(Mat, 1, 3) == "pp/" then return end -- Reject setting any material that starts with "pp/"
+function ENT:SetMaterial( mat )
+    if mat and string.sub(mat, 1, 3) == "pp/" then return end -- Reject setting any material that starts with "pp/"
 
-    SetMat(self, Mat)
+    ENT.SetMaterial( self, mat )
 end
 
-function ENT:SetSubMaterial(Idx, Mat)
-    if Mat and sub(Mat, 1, 3) == "pp/" then return end
+function ENT:SetSubMaterial( idx, mat )
+    if mat and string.sub( mat, 1, 3 ) == "pp/" then return end
 
-    SubMat(self, Idx, Mat)
+    ENT.SetSubMaterial( self, idx, mat )
 end
