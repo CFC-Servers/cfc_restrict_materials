@@ -3,9 +3,11 @@ local function checkMat( mat )
     local mat1 = prop:GetMaterial()
     prop:SetMaterial( mat )
     local mat2 = prop:GetMaterial()
+
+    prop:Remove()
+    errorlol
     return mat1 == mat2
 end
--- a silly thing
 return {
     {
         name = "Check if allowed materials are properly changed.",
