@@ -5,7 +5,6 @@ local function checkMat( mat )
     local mat2 = prop:GetMaterial()
 
     prop:Remove()
-    errorlol
     return mat1 == mat2
 end
 return {
