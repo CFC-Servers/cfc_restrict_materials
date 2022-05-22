@@ -5,7 +5,7 @@ local function checkMat( mat )
     local mat2 = prop:GetMaterial()
     return mat1 == mat2
 end
-
+-- a silly thing
 return {
     {
         name = "Check if allowed materials are properly changed.",
