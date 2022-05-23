@@ -16,7 +16,7 @@ return {
         end
     },
     {
-        name = "Check if not materials are not applied.",
+        name = "It should prevent blocked materials from being used",
         func = function()
             local same = checkMat( "pp/copy" )
             expect( same )
