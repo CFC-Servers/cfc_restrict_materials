@@ -9,7 +9,7 @@ local function checkMat( mat )
 end
 return {
     {
-        name = "Check if allowed materials are properly changed.",
+        name = "It should work properly with unblocked materials",
         func = function()
             local same = checkMat( "brick/brick_model" )
             expect( !same )
