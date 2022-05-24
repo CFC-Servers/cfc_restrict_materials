@@ -12,14 +12,14 @@ return {
         name = "It should work properly with unblocked materials",
         func = function()
             local same = checkMat( "brick/brick_model" )
-            expect( !same )
+            expect( same ).to.beFalse()
         end
     },
     {
         name = "It should prevent blocked materials from being used",
         func = function()
             local same = checkMat( "pp/copy" )
-            expect( same )
+            expect( same ).to.beTrue()
         end
     },
 }
