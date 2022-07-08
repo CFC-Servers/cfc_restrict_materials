@@ -13,6 +13,7 @@ CFCBlockMats = {
 
 include( "modules/elastics.lua" )
 include( "modules/hydraulics.lua" )
+include( "modules/keyframe_ropes.lua" )
 include( "modules/materials.lua" )
 include( "modules/muscles.lua" )
 include( "modules/pulleys.lua" )
