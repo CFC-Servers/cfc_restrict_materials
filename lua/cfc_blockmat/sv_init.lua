@@ -5,7 +5,7 @@ local string_find = string.find
 local badConstraintPrefixes = {
     ["pp/"] = true,
     ["effects/"] = true,
-    ["sprits/"] = true,
+    ["sprites/"] = true,
     ["particle/"] = true,
     ["shadertest/"] = true,
     ["debug/"] = true
@@ -25,7 +25,6 @@ CFCBlockMats = {
 include( "modules/elastics.lua" )
 include( "modules/hydraulics.lua" )
 include( "modules/keyframe_ropes.lua" )
-include( "modules/materials.lua" )
 include( "modules/muscles.lua" )
 include( "modules/pulleys.lua" )
 include( "modules/ropes.lua" )
