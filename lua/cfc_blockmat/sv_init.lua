@@ -1,14 +1,25 @@
+local rawget = rawget
+local string_sub = string.sub
+local string_find = string.find
+
+local badConstraintPrefixes = {
+    ["pp/"] = true,
+    ["effects/"] = true,
+    ["sprits/"] = true,
+    ["particle/"] = true,
+    ["shadertest/"] = true,
+    ["debug/"] = true
+}
+
 CFCBlockMats = {
     originals = {},
-    badConstraintPrefixes = {
-        ["pp/"] = true,
-        ["effects/"] = true,
-        ["sprits/"] = true,
-        ["particle/"] = true,
-        ["shadertest/"] = true,
-        ["debug/"] = true
-    }
+    IsBad = function( material )
+        local firstSlash = string_find( material, "/", 3, 11, true )
+        if not firstSlash then return false end
 
+        material = string_sub( material, 1, firstSlash )
+        return rawget( badConstraintPrefixes, material ) or false
+    end
 }
 
 include( "modules/elastics.lua" )

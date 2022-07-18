@@ -1,11 +1,8 @@
-local rawget = rawget
-local string_sub = string.sub
-local badPrefixes = CFCBlockMats.badConstraintPrefixes
-
+local IsBad = CFCBlockMats.IsBad
 local original = constraint.Slider
 CFCBlockMats.originals.Slider = original
 
-constraint.Slider = function( a, b, c, d, e, f, g, material, i )
-    if rawget( badPrefixes, string_sub( material, 1, 3 ) ) then return end
-    return original( a, b, c, d, e, f, g, material, i )
+constraint.Slider = function( a, b, c, d, e, f, g, material, ... )
+    if IsBad( material ) then return end
+    return original( a, b, c, d, e, f, g, material, ... )
 end
