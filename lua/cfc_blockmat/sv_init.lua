@@ -14,6 +14,8 @@ local badConstraintPrefixes = {
 CFCBlockMats = {
     originals = {},
     IsBad = function( material )
+        if not material then return false end
+
         local firstSlash = string_find( material, "/", 3, 11, true )
         if not firstSlash then return false end
 
