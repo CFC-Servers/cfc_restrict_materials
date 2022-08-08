@@ -24,5 +24,4 @@ CFCBlockMats = {
     end
 }
 
-include( "modules/materials.lua" )
 include( "modules/keyframe_ropes.lua" )
