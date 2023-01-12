@@ -25,7 +25,7 @@ return {
         },
         {
             name = "Should prevent blocked materials from being used",
-            func = function()
+            func = function( state )
                 local mat = "pp/copy"
                 local baseMat = state.prop:GetMaterial()
 
