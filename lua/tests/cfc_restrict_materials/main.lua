@@ -1,25 +1,39 @@
-local function checkMat( mat )
-    local prop = ents.Create( "prop_physics" )
-    local mat1 = prop:GetMaterial()
-    prop:SetMaterial( mat )
-    local mat2 = prop:GetMaterial()
-
-    prop:Remove()
-    return mat1 == mat2
-end
 return {
-    {
-        name = "It should work properly with unblocked materials",
-        func = function()
-            local same = checkMat( "brick/brick_model" )
-            expect( same ).to.beFalse()
+    groupName = "SetMaterial",
+
+    beforeEach = function( state )
+        state.prop = ents.Create( "prop_physics" )
+        state.prop:Spawn()
+    end,
+
+    afterEach = function( state )
+        if IsValid( state.prop ) then
+            state.prop:Remove()
         end
-    },
-    {
-        name = "It should prevent blocked materials from being used",
-        func = function()
-            local same = checkMat( "pp/copy" )
-            expect( same ).to.beTrue()
-        end
-    },
+    end,
+
+    cases = {
+        {
+            name = "Should work properly with unblocked materials",
+            func = function( state )
+                local mat = "brick/brick_model"
+                expect( state.prop:GetMaterial() == mat ).to.beFalse()
+
+                state.prop:SetMaterial( mat )
+                expect( state.prop:GetMaterial() ).to.equal( mat )
+            end
+        },
+        {
+            name = "Should prevent blocked materials from being used",
+            func = function( state )
+                local mat = "pp/copy"
+                local baseMat = state.prop:GetMaterial()
+
+                expect( mat == baseMat ).to.beFalse()
+
+                state.prop:SetMaterial( mat )
+                expect( state.prop:GetMaterial() ).to.equal( baseMat )
+            end
+        },
+    }
 }
