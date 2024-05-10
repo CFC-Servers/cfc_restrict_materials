@@ -6,9 +6,12 @@ local badConstraintPrefixes = {
     ["pp/"] = true,
     ["effects/"] = true,
     ["sprites/"] = true,
+    ["trails/"] = true,
+    ["shadertest/"] = true,
     ["particle/"] = true,
     ["shadertest/"] = true,
-    ["debug/"] = true
+    ["debug/"] = true,
+    ["models/"] = true
 }
 
 CFCBlockMats = {
