@@ -3,7 +3,7 @@ local original = constraint.CreateKeyframeRope
 CFCBlockMats.originals.CreateKeyframeRope = original
 
 constraint.CreateKeyframeRope = function( a, b, material, ... )
-    if IsBad( material ) or Material( material ):IsError() then
+    if IsBad( material ) or ( material and Material( material ):IsError() ) then
         material = "cable/cable2"
     end
 
